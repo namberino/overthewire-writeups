@@ -21,7 +21,7 @@ The `$query = "SELECT * from users where username=\"".$_REQUEST["username
 
 This is checking for the correct username and password inside the sql query. What we can do is try to comment out the password checking part, that way, the sql query will be just a simple lookup query.
 
-So in the username input field, I inputed this: `natas15" #` and I inputed some random strings into the password as it doesn't matter what my password input is.
+So in the username input field, I inputed this: `natas15" #` and I inputed some random strings into the password as it doesn't matter what my password input is. We need the quote at the end of the username so as to close up the string, or else the query won't work.
 
 The output:
 ```

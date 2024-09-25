@@ -33,12 +33,10 @@ mysqli_close($link);
 ?>
 ```
 
-This will check for user existence. If I try to input `natas16` into the input field, it says that `This user exists`
-
-This won't show any database information to us, only 3 different types of response based on our query
+This will check for user existence. If I try to input `natas16` into the input field, it says that `This user exists`. The query selects both fields of the `users` table. This won't show any database information to us, only 3 different types of response based on our query. If the query is correct and it returns a user, it would notify us that the user exists, else it will notify us that the user doesn't exist, otherwise the query is wrong.
 
 For this, we can try brute forcing the password by using a python script:
-```py
+```python
 import requests
 from requests.auth import HTTPBasicAuth
 

