@@ -60,5 +60,5 @@ The regex (used with `-E` for extended regex):
 
 Here's the output:
 ```
-
+Complete flag: EqjHJbo7LFNb8vwhHb9s75hokh5TF0OC
 ```
