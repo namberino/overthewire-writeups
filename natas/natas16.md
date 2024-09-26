@@ -51,3 +51,14 @@ for i in range(32):
 
 print(f'Complete flag: {flag}')
 ```
+
+The regex (used with `-E` for extended regex):
+- `^` means assert position at the start of the line
+- `%s%c` are placeholder, helps us combine both the flag being built and testing the next correct character.
+- `.` matches any character (except for line terminators)
+- `*` matches the previous token for unlimited amount of times.
+
+Here's the output:
+```
+
+```
