@@ -1,3 +1,5 @@
+Level password: `3O9RfhqyAlVBEZpVb6LYStshZoqoSx5K`
+
 If we try to access this shell, we're put into an uppercase shell. Anything we type into this shell is uppercased, meaning we can't type any commands.
 
 Linux has variables:

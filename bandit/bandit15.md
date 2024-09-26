@@ -1,3 +1,5 @@
+Level password: `8xCjnmgoKbGLhHFAZlGE5Tmu4M2tKJQo`
+
 In order to use SSL/TLS encryption for data and sending those encrypted data, we could use the `openssl s_client`:
 
 ```sh

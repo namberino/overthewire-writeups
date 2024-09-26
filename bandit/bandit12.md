@@ -1,3 +1,5 @@
+Level password: `7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4`
+
 For this level, it's important to understand hexdump. The hexdump is just the binary output of a particular file. In data.txt, it contains the entire hexdump of the compressed password file. We need to first revert this hexdump as it's currently in ASCII values. We could use `xxd` to perform the hexdump reversion:
 
 ```sh

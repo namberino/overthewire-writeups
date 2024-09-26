@@ -1,3 +1,5 @@
+Level password: `0Zf11ioIjMVN551jX3CmStKLYqjk54Ga`
+
 Same first step as the last 2 levels. But the bandit24 crontab script is different:
 
 ```sh
@@ -72,8 +74,8 @@ chmod a+rwx /tmp/temp_dir
 chmod +rw password.txt
 ```
 
-Then we copy the script to the `/var/spool/bandit24/` directory and wait for it to execute:
+Then we copy the script to the `/var/spool/bandit24/foo/` directory and wait for it to execute:
 
 ```sh
-cp script.sh /var/spool/bandit24
+cp script.sh /var/spool/bandit24/foo/
 ```

@@ -1,11 +1,13 @@
-For this, we could use `netcat` to transmit the signal to a port and also listen to the output. We could use the `-l` flag to listen and the `&` to let the process run in the background. We also use `-p` which connects to a local port, so no need to specify localhost. Remember to use `-n` with echo to remove the trailing characters such as carriage return or newline:
+Level password: `0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO`
+
+For this, we could use `netcat` to transmit the signal to a port and also listen to the output. We could use the `-l` flag to listen and the `&` to let the process run in the background. We also use `-p` which connects to a local port, so no need to specify localhost:
 
 ```sh
-echo -n "current_level_password" | nc -l -p 1234 &
+echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l -p 4444 &
 ```
 
-Then we could run the given binary and connect to port `1234` to receive the password:
+Then we could run the given binary and connect to port `4444` to receive the password:
 
 ```sh
-./suconnect 1234
+./suconnect 4444
 ```

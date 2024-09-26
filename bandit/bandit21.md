@@ -1,3 +1,5 @@
+Level password: `EeoULMCra2q0dSkYj561DX7s1CpBuOBt`
+
 Cron is a job scheduling utility present in Unix like systems. The `crond` daemon (A process which runs in the background, performs tasks, and is not interactive) enables cron functionality and runs in background. The cron reads the crontab (cron tables) for running predefined scripts. We can see the crontabs in `/etc/cron.d`:
 
 ```sh

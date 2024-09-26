@@ -1,3 +1,5 @@
+Level password: `fb5S2xb7bRyFmAvQYQGEqsbhVyJqhnDy`
+
 For this, we can clone the repo using `git clone` (remember to specify port 2220):
 
 ```sh

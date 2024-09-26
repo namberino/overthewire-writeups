@@ -1,3 +1,5 @@
+Level password: `HWasnPhtq9AVKe0dmk45nxy20cvUa6EG`
+
 To find a file stored somewhere in the server, we need to start the search at the root directory, which is `/`. This is the *root* of the Linux filesystem. Every other directories within Linux all came from this directory or a directory that came from this directory. So we can use the `find` command for this:
 
 ```sh

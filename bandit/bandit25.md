@@ -1,4 +1,4 @@
-This level is a little tricky.
+Level password: `iCi86ttT4KSNe1armKiwbQNmB3YJP3q4`
 
 Each user will have a default startup shell. Since bandit26's shell is something other than `/bin/bash`, we need to figure out what it is first. We could do this by reading `/etc/passwd`, which contains information about each user. The `passwd` file have 7 fields, each separated by a colon `:`:
 

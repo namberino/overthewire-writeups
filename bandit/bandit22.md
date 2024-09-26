@@ -1,3 +1,5 @@
+Level password: `tRae0UfB9v0UzbCdn9cY0gQnds9GF58Q`
+
 Same first part here. But now, the script for bandit23 is different:
 
 ```sh

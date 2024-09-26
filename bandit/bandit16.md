@@ -1,3 +1,5 @@
+Level password: `kSkvUpMQ7lBYyCM4GBPvCvT1BfWRy0Dx`
+
 `nmap` allows us to scan ports and get information about them. It does this by sending packets to those ports and try to see the response. Since we need to find for a port that speaks SSL, we could try the `-sV` flag with `nmap`, which allows us to probe for services. To make this go faster, we could use the `-T` flag to speed up:
 
 ```sh
