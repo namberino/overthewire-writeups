@@ -1,6 +1,6 @@
-*setuid* (along with *setgid*) allows us to run executables with the permissions of the executable's owner (or group). They are often used to allow users on a computer system to run programs with temporarily elevated privileges to perform a specific task. While the assumed user id or group id privileges provided are not always elevated, at a minimum they are specific.
+*setuid* (along with *setgid*) allows us to run executables with the permissions of the executable's owner (or group for *setgid*). They are often used to allow users on a computer system to run programs with temporarily elevated privileges to perform a specific task. While the assumed UID or GID privileges provided are not always elevated, at a minimum they are specific.
 
-Let's see what each piece of data in `ls -la` mean:
+Let's see what each piece of data in `ls -la` mean, which can tell us a lot about permissions:
 
 ```sh
 ls -la
