@@ -6,4 +6,4 @@ Since `.bashrc` has been modified to automatically log out when we try to login.
 ssh bandit18@bandit.labs.overthewire.org -p 2220 -t 'cat readme'
 ```
 
-Normally, `ssh` will allocate a pseudo-terminal only when it detects that the input is coming from a terminal (like when you use `ssh` interactively). `-t` ensures the terminal is always allocated, useful for running commands that require a terminal.
+Normally, `ssh` will allocate a terminal only when it detects that the input is coming from a terminal (like when you use `ssh` interactively). `-t` ensures the terminal is always allocated, useful for running commands that require a terminal.

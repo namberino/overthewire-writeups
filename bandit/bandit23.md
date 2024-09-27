@@ -36,7 +36,7 @@ This loops over each file within the current directory.
 if [ "$i" != "." -a "$i" != ".." ];
 ```
 
-This checks for whether the current file is `.` or `..`, which are directories.
+This skips over files that's named `.` or `..`, which are important directories.
 
 ```sh
 owner="$(stat --format "%U" ./$i)"
