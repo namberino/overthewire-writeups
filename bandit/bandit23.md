@@ -8,8 +8,8 @@ cat /usr/bin/cronjob_bandit24.sh
 
 myname=$(whoami)
 
-cd /var/spool/$myname
-echo "Executing and deleting all scripts in /var/spool/$myname:"
+cd /var/spool/$myname/foo
+echo "Executing and deleting all scripts in /var/spool/$myname/foo:"
 for i in * .*;
 do
     if [ "$i" != "." -a "$i" != ".." ];
@@ -58,7 +58,7 @@ rm -f ./$i
 
 This force delete the current file being processed.
 
-What we can extract from this script is that this crontab executes any files in the `/var/spool/current_username` and delete it. Specifically, for files that is owned by user *bandit23* (aka us), it would run the executable for 60 seconds then kill it. This means the script would run with the permissions of user *bandit24*. So we could create our own script and to read the password of bandit24 and write it into a file that we could access:
+What we can extract from this script is that this crontab executes any files in the `/var/spool/current_username/foo/` and delete it. Specifically, for files that is owned by user *bandit23* (aka us), it would run the executable for 60 seconds then kill it. This means the script would run with the permissions of user *bandit24*. So we could create our own script and to read the password of bandit24 and write it into a file that we could access:
 
 ```sh
 #!/bin/bash
