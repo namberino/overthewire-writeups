@@ -8,6 +8,8 @@ cat /etc/cron.d/cronjob_bandit22
 * * * * * bandit22 /usr/bin/cronjob_bandit22.sh &> /dev/null
 ```
 
+`@reboot` means the job will be run every time the system boot (user login). `bandit22` means it runs with `bandit22` permissions.
+
 We cat the cron.d for bandit22. We could see that it runs the file `/usr/bin/cronjob_bandit22.sh` as bandit22. And this is what the asterisks mean:
 
 ```

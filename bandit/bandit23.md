@@ -24,8 +24,6 @@ do
 done
 ```
 
-Let's break down each part of the code:
-
 ```sh
 for i in * .*;
 ```
@@ -45,12 +43,18 @@ owner="$(stat --format "%U" ./$i)"
 This gets the owner of the file to be executed name.
 
 ```sh
+stat --format "%U" ./$i
+```
+
+`stat` displays the file status, `--format "%U"` allows outputting the specified format instead of the default.
+
+```sh
 if [ "${owner}" = "bandit23" ]; then
 	timeout -s 9 60 ./$i
 fi
 ```
 
-This checks whether the owner of the file is `bandit23`. If it is then it executes it. But it will timeout after 60 seconds.
+This checks whether the owner of the file is `bandit23`. If it is then it executes it. But it will timeout after 60 seconds. When it timeout, it sends a signal `9` to the process. The 9th signal is the `kill` signal (use `kill -l` to list the signals).
 
 ```sh
 rm -f ./$i

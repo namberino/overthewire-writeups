@@ -20,4 +20,6 @@ So this is grabbing the username of the current user, hashing the name and remov
 echo I am user bandit23 | md5sum | cut -d ' ' -f 1
 ```
 
+`md5sum` creates a hash from an input. `cut -d ' '` separates the output into separate parts using `' '` as the delimiter and `-f 1` selects the first part of the split text.
+
 Then grep the `/tmp/` file for the password.

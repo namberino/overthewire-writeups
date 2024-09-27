@@ -2,6 +2,8 @@ Level password: `cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8`
 
 *setuid* (along with *setgid*) allows us to run executables with the permissions of the executable's owner (or group for *setgid*). They are often used to allow users on a computer system to run programs with temporarily elevated privileges to perform a specific task. While the assumed UID or GID privileges provided are not always elevated, at a minimum they are specific.
 
+*setuid* for file using `chmod 4755`. Can't be used on interpreted executables such as bash scripts ([Reference](https://unix.stackexchange.com/questions/364/allow-setuid-on-shell-scripts)).
+
 Let's see what each piece of data in `ls -la` mean, which can tell us a lot about permissions:
 
 ```sh
