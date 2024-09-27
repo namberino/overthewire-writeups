@@ -54,7 +54,7 @@ if [ "${owner}" = "bandit23" ]; then
 fi
 ```
 
-This checks whether the owner of the file is `bandit23`. If it is then it executes it. But it will timeout after 60 seconds. When it timeout, it sends a signal `9` to the process. The 9th signal is the `kill` signal (use `kill -l` to list the signals).
+This checks whether the owner of the file is `bandit23`. If it is then it executes it. But it will timeout after 60 seconds. When it timeout, it sends a signal `9` to the process. The 9th signal is the `kill` signal (use `kill -l` to list the signals. Signal `9` is the `KILL` signal).
 
 ```sh
 rm -f ./$i
