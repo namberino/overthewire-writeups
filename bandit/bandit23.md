@@ -74,7 +74,7 @@ Before we could do anything, we need to modify the permission so that the cronta
 
 ```sh
 chmod +rx script.sh
-chmod a+rwx /tmp/temp_dir
+chmod +rwx /tmp/temp_dir
 chmod +rw password.txt
 ```
 
