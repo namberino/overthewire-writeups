@@ -28,13 +28,13 @@ done
 for i in * .*;
 ```
 
-This loops over each file within the current directory.
+This loops over each file within the current directory. `*` matches regular files, `.*` matches hidden files.
 
 ```sh
 if [ "$i" != "." -a "$i" != ".." ];
 ```
 
-This skips over files that's named `.` or `..`, which are important directories.
+This skips over files that's named `.` or `..`, which are important directories (special entries).
 
 ```sh
 owner="$(stat --format "%U" ./$i)"
@@ -46,7 +46,7 @@ This gets the owner of the file to be executed name.
 stat --format "%U" ./$i
 ```
 
-`stat` displays the file status, `--format "%U"` allows outputting the specified format instead of the default.
+`stat` displays the file status and important information about files, `--format "%U"` allows outputting the specified format instead of the default, which outputs the file owner's username.
 
 ```sh
 if [ "${owner}" = "bandit23" ]; then
