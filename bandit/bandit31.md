@@ -6,7 +6,7 @@ For this, we can clone the repo using `git clone` (remember to specify port 2220
 git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
 ```
 
-The `README.md` specifies that we need to create a `key.txt` file and push it to the repository. If we try to push the file now, we can't because the `.gitignore` is preventing it
+The `README.md` specifies that we need to create a `key.txt` file and push it to the repository. If we try to push the file now, we can't because the `.gitignore` is preventing it. `.gitignore` specifies untracked files that git should ignore.
 
 ```sh
 cat .gitignore

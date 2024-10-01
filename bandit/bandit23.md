@@ -73,9 +73,9 @@ cat /etc/bandit_pass/bandit24 > /tmp/temp_dir/password.txt
 Before we could do anything, we need to modify the permission so that the crontab could access the directory that houses the password file, the password file itself, and the permission of the script itself:
 
 ```sh
-chmod +rx script.sh
-chmod +rwx /tmp/temp_dir
-chmod +rw password.txt
+chmod o+rx script.sh
+chmod o+rwx /tmp/temp_dir # x so that the cronjob can access the directory
+chmod o+rw password.txt
 ```
 
 Then we copy the script to the `/var/spool/bandit24/foo/` directory and wait for it to execute:
