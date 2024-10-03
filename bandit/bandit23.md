@@ -28,7 +28,7 @@ done
 for i in * .*;
 ```
 
-This loops over each file within the current directory. `*` matches regular files, `.*` matches hidden files.
+This loops over each file within the current directory. `*` matches regular files and directories, `.*` matches hidden files and hidden directories.
 
 ```sh
 if [ "$i" != "." -a "$i" != ".." ];
@@ -62,7 +62,7 @@ rm -f ./$i
 
 This force delete the current file being processed.
 
-What we can extract from this script is that this crontab executes any files in the `/var/spool/current_username/foo/` and delete it. Specifically, for files that is owned by user *bandit23* (aka us), it would run the executable for 60 seconds then kill it. This means the script would run with the permissions of user *bandit24*. So we could create our own script and to read the password of bandit24 and write it into a file that we could access:
+What we can extract from this script is that this crontab executes any files in the `/var/spool/bandit24/foo/` and delete it. Specifically, for files that is owned by user *bandit23* (aka us), it would run the executable for 60 seconds then kill it. This means the script would run with the permissions of user *bandit24*. So we could create our own script and to read the password of bandit24 and write it into a file that we could access:
 
 ```sh
 #!/bin/bash
